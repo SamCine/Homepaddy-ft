@@ -1,1 +1,57 @@
-html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HomePaddy - Find Apartments & Lands</title>
+  <link rel="stylesheet" href="css/styles.css"/>
+</head>
+<body>
+
+  <header>
+    <div class="container nav">
+      <h1 class="logo">HomePaddy</h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="browse.html">Browse</a>
+        <a href="login.html">Login</a>
+        <a href="register.html">Register</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h2>Find Your Next Home, Land or Hotel</h2>
+    <div class="search-bar">
+      <input type="text" placeholder="Location"/>
+      <select>
+        <option>All Types</option>
+        <option>Rent</option>
+        <option>Buy</option>
+        <option>Hotel</option>
+      </select>
+      <input type="number" placeholder="Max Price"/>
+      <button>Search</button>
+    </div>
+  </section>
+
+  <section class="featured">
+    <h3>Featured Listings</h3>
+    <div class="card-container">
+      <!-- Example Property Card -->
+      <div class="property-card">
+        <img src="assets/sample-house.jpg" alt="House">
+        <h4>2 Bedroom Flat</h4>
+        <p>Lekki, Lagos - ₦850k/year</p>
+        <a href="property.html?id=123">View</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 HomePaddy. All rights reserved.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
