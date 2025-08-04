@@ -1,57 +1,371 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>HomePaddy - Find Apartments & Lands</title>
-  <link rel="stylesheet" href="css/styles.css"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepaddy - Find Your Perfect Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css"/>
 </head>
-<body>
+<body class="min-h-screen bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/>
+                        </svg>
+                    </div>
+                    <span class="text-xl font-bold text-blue-600">HomePaddy</span>
+                </div>
 
-  <header>
-    <div class="container nav">
-      <h1 class="logo">HomePaddy</h1>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="browse.html">Browse</a>
-        <a href="login.html">Login</a>
-        <a href="register.html">Register</a>
-      </nav>
+                <!-- Navigation -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#" class="text-gray-700 hover:text-gray-900 font-medium">Browse</a>
+                    <a href="#" class="text-gray-700 hover:text-gray-900 font-medium">List Property</a>
+                    <a href="#" class="text-gray-700 hover:text-gray-900 font-medium">About</a>
+                </nav>
+
+                <!-- Auth Buttons -->
+                <div class="flex items-center space-x-4">
+                    <button class="text-gray-700 hover:text-gray-900 px-4 py-2 font-medium">Sign In</button>
+                    <button class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium">Get Started</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="text-center mb-12">
+            <h1 class="text-5xl md:text-6xl font-bold mb-4">
+                <span class="gradient-text">Find Your Perfect Home</span>
+            </h1>
+            <h2 class="text-5xl md:text-6xl font-bold text-gray-900 mb-8">Without Agent Fees</h2>
+            <p class="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+                Connect directly with property owners. No middlemen, no extra costs. Rent, buy, or book short-term stays across Nigeria.
+            </p>
+        </div>
+
+        <!-- Search Form -->
+        <div class="max-w-4xl mx-auto">
+            <div class="bg-white rounded-2xl shadow-lg p-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <!-- Location Input -->
+                    <div class="space-y-2">
+                        <label class="text-sm font-medium text-gray-700">Location</label>
+                        <div class="relative">
+                            <svg class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                            </svg>
+                            <input 
+                                type="text" 
+                                placeholder="Enter city, area, or street name"
+                                class="w-full pl-10 h-12 border border-gray-200 rounded-lg focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none px-3"
+                            />
+                        </div>
+                    </div>
+
+                    <!-- Price Range Input -->
+                    <div class="space-y-2">
+                        <label class="text-sm font-medium text-gray-700">Price Range</label>
+                        <input 
+                            type="text" 
+                            placeholder="Any price"
+                            class="w-full h-12 border border-gray-200 rounded-lg focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none px-3"
+                        />
+                    </div>
+
+                    <!-- Search Button -->
+                    <div class="flex items-end">
+                        <button class="search-btn w-full h-12 text-white font-medium rounded-lg flex items-center justify-center space-x-2">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Search</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Featured Properties Section -->
+        <div class="mt-24">
+            <h2 class="text-3xl font-bold text-gray-900 text-center mb-12">Featured Properties</h2>
+            
+            <!-- Property Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Property Card 1 - Modern 2-Bedroom Apartment -->
+                <div class="property-card bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <div class="relative">
+                        <img src="C:\Users\Hp\Pictures\IMG-20250326-WA0021.jpg" alt="Modern 2-Bedroom Apartment" class="w-full h-48 object-cover">
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium">Rent</span>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <span class="bg-white text-green-600 px-3 py-1 rounded-full text-sm font-medium flex items-center space-x-1">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                <span>Verified</span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Modern 2-Bedroom Apartment</h3>
+                        <div class="flex items-center text-gray-600 mb-3">
+                            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-sm">Victoria Island, Lagos</span>
+                        </div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-2xl font-bold text-blue-600">₦2,500,000</span>
+                            <div class="flex items-center space-x-1">
+                                <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                </svg>
+                                <span class="text-sm font-medium">4.8</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between text-sm text-gray-600 mb-4">
+                            <span>2 bed • 2 bath</span>
+                            <span>by Adebayo Okonkwo</span>
+                        </div>
+                        <button class="w-full bg-gray-900 text-white py-3 rounded-lg font-medium flex items-center justify-center space-x-2 hover:bg-gray-800 transition-colors">
+                            <span>View Details</span>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Property Card 2 - Luxury 4-Bedroom Duplex -->
+                <div class="property-card bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <div class="relative">
+                        <img src="C:\Users\Hp\Pictures\IMG-20250715-WA0008.jpg" alt="Luxury 4-Bedroom Duplex" class="w-full h-48 object-cover">
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-green-600 text-white px-3 py-1 rounded-full text-sm font-medium">Sale</span>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <span class="bg-white text-green-600 px-3 py-1 rounded-full text-sm font-medium flex items-center space-x-1">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                <span>Verified</span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Luxury 4-Bedroom Duplex</h3>
+                        <div class="flex items-center text-gray-600 mb-3">
+                            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-sm">Lekki Phase 1, Lagos</span>
+                        </div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-2xl font-bold text-blue-600">₦85,000,000</span>
+                            <div class="flex items-center space-x-1">
+                                <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                </svg>
+                                <span class="text-sm font-medium">4.9</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between text-sm text-gray-600 mb-4">
+                            <span>4 bed • 3 bath</span>
+                            <span>by Sarah Johnson</span>
+                        </div>
+                        <button class="w-full bg-gray-900 text-white py-3 rounded-lg font-medium flex items-center justify-center space-x-2 hover:bg-gray-800 transition-colors">
+                            <span>View Details</span>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Property Card 3 - Cozy Studio Apartment -->
+                <div class="property-card bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <div class="relative">
+                        <img src="C:\Users\Hp\OneDrive\Pictures\IMG-20250528-WA0012.jpg" alt="Cozy Studio Apartment" class="w-full h-48 object-cover">
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-purple-600 text-white px-3 py-1 rounded-full text-sm font-medium">Shortlet</span>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <span class="bg-white text-green-600 px-3 py-1 rounded-full text-sm font-medium flex items-center space-x-1">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                <span>Verified</span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Cozy Studio Apartment</h3>
+                        <div class="flex items-center text-gray-600 mb-3">
+                            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-sm">Ikeja GRA, Lagos</span>
+                        </div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-2xl font-bold text-blue-600">₦35,000/night</span>
+                            <div class="flex items-center space-x-1">
+                                <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                </svg>
+                                <span class="text-sm font-medium">4.7</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between text-sm text-gray-600 mb-4">
+                            <span>1 bed • 1 bath</span>
+                            <span>by Michael Adebayo</span>
+                        </div>
+                        <button class="w-full bg-gray-900 text-white py-3 rounded-lg font-medium flex items-center justify-center space-x-2 hover:bg-gray-800 transition-colors">
+                            <span>View Details</span>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Why Choose HomePaddy Section -->
+        <div class="mt-32">
+            <h2 class="text-3xl font-bold text-gray-900 text-center mb-16">Why Choose Homepaddy?</h2>
+            
+            <!-- Features Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Feature 1 - No Agent Fees -->
+                <div class="feature-card bg-white rounded-2xl p-8 text-center shadow-sm border border-gray-100">
+                    <div class="feature-icon w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z"/>
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">No Agent Fees</h3>
+                    <p class="text-gray-600 leading-relaxed">Connect directly with property owners and save on expensive agent commissions</p>
+                </div>
+
+                <!-- Feature 2 - Direct Communication -->
+                <div class="feature-card bg-white rounded-2xl p-8 text-center shadow-sm border border-gray-100">
+                    <div class="feature-icon w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Direct Communication</h3>
+                    <p class="text-gray-600 leading-relaxed">Chat directly with landlords and property owners through our secure messaging system</p>
+                </div>
+
+                <!-- Feature 3 - Verified Properties -->
+                <div class="feature-card bg-white rounded-2xl p-8 text-center shadow-sm border border-gray-100">
+                    <div class="feature-icon w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Verified Properties</h3>
+                    <p class="text-gray-600 leading-relaxed">All properties and landlords are verified to ensure genuine listings and safe transactions</p>
+                </div>
+
+                <!-- Feature 4 - Multiple Property Types -->
+                <div class="feature-card bg-white rounded-2xl p-8 text-center shadow-sm border border-gray-100">
+                    <div class="feature-icon w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Multiple Property Types</h3>
+                    <p class="text-gray-600 leading-relaxed">From rentals to sales, short-lets to service apartments - find exactly what you need</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Call to Action Section -->
+        <div class="mt-32 mb-16">
+            <div class="cta-section rounded-3xl p-12 text-center text-white">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Ready to Get Started?</h2>
+                <p class="text-xl mb-8 opacity-90 max-w-3xl mx-auto">Join thousands of landlords and tenants who are saving money with direct connections</p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <button class="cta-btn bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-50 transition-colors">
+                        I'm Looking for Property
+                    </button>
+                    <button class="cta-btn bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-50 transition-colors">
+                        I Want to List Property
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer-section text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div class="lg:col-span-1">
+                    <div class="flex items-center space-x-2 mb-6">
+                        <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/>
+                            </svg>
+                        </div>
+                        <span class="text-xl font-bold text-white">HomePaddy</span>
+                    </div>
+                    <p class="text-gray-300 leading-relaxed">
+                        Connecting property owners directly with<br> renters and buyers across Nigeria.
+                    </p>
+                </div>
+
+                <!-- For Tenants -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">For Tenants</h3>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="footer-link text-gray-300 hover:text-white transition-colors">Browse Properties</a></li>
+                        <li><a href="#" class="footer-link text-gray-300 hover:text-white transition-colors">Search by Location</a></li>
+                        <li><a href="#" class="footer-link text-gray-300 hover:text-white transition-colors">Saved Properties</a></li>
+                    </ul>
+                </div>
+
+                <!-- For Landlords -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">For Landlords</h3>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="footer-link text-gray-300 hover:text-white transition-colors">List Your Property</a></li>
+                        <li><a href="#" class="footer-link text-gray-300 hover:text-white transition-colors">Manage Listings</a></li>
+                        <li><a href="#" class="footer-link text-gray-300 hover:text-white transition-colors">Verification</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+            <div>
+                <h3 class="text-lg font-semibold mb-6">Support</h3>
+                <ul class="space-y-4">
+                    <li><a href="#" class="footer-link text-gray-300 hover:text-white transition-colors">Help Center</a></li>
+                    <li><a href="#" class="footer-link text-gray-300 hover:text-white transition-colors">Contact Us</a></li>
+                    <li><a href="#" class="footer-link text-gray-300 hover:text-white transition-colors">Terms & Privacy</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Copyright Section -->
+        <div class="copyright-section mt-12 pt-8 text-center">
+            <p class="text-gray-400 text-sm">© 2025 HomePaddy. All rights reserved.</p>
+        </div>
     </div>
-  </header>
-
-  <section class="hero">
-    <h2>Find Your Next Home, Land or Hotel</h2>
-    <div class="search-bar">
-      <input type="text" placeholder="Location"/>
-      <select>
-        <option>All Types</option>
-        <option>Rent</option>
-        <option>Buy</option>
-        <option>Hotel</option>
-      </select>
-      <input type="number" placeholder="Max Price"/>
-      <button>Search</button>
-    </div>
-  </section>
-
-  <section class="featured">
-    <h3>Featured Listings</h3>
-    <div class="card-container">
-      <!-- Example Property Card -->
-      <div class="property-card">
-        <img src="assets/sample-house.jpg" alt="House">
-        <h4>2 Bedroom Flat</h4>
-        <p>Lekki, Lagos - ₦850k/year</p>
-        <a href="property.html?id=123">View</a>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 HomePaddy. All rights reserved.</p>
-  </footer>
-
-  <script src="js/main.js"></script>
+</footer>
 </body>
 </html>
